@@ -2,13 +2,13 @@
 /* @author Name: Jamel Boumazouna ,Student Number: x21122768 */
 body {
     font-family: Arial, sans-serif;
-    background: #f4f4f4;
+    background: #FFFFFF;
     padding: 50px;
 }
 
 /* Form Container (Used in login/register/home) */
 .login-box {
-    background: #fff;
+    background: #E8E8E8;
     max-width: 400px;
     margin: auto;
     padding: 25px 30px;
@@ -25,7 +25,7 @@ label, input {
 
 /* Submit Buttons */
 input[type="submit"], button {
-    background: #007BFF;
+    background: #0000FF;
     color: white;
     padding: 10px;
     border: none;
@@ -36,7 +36,7 @@ input[type="submit"], button {
 
 input[type="submit"]:hover,
 button:hover {
-    background-color: #0056b3;
+    background-color: #0000BD;
 }
 
 /* Error Messages */

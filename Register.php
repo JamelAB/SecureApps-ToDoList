@@ -1,9 +1,6 @@
 <?php
 # @author Name: Jamel Boumazouna ,Student Number:x21122768
 
-// kinda redundant but need to fix logic to remove
-session_start();
-
 // connect to database
 require_once 'includes/db.php';
 
@@ -49,8 +46,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  script-src 'self';
+  style-src 'self';
+  img-src 'self' data:;
+  object-src 'none';
+  base-uri 'none';
+  form-action 'self';
+">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="DENY">
+
     <title>Register</title>
     <!-- Link to external CSS stylesheet -->
     <link rel="stylesheet" href="Style.css">
