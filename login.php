@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
 
     // no prepared statements so its more vulnerable to sql injection
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE username = :username");
+    $sql = "SELECT * FROM users WHERE username = '$username' AND password_hash = '$password'";
     $result = $pdo->query($sql);
     $user = $result->fetch(PDO::FETCH_ASSOC);
 

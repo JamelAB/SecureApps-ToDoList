@@ -18,14 +18,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $confirmPassword = $_POST['confirm_password'];
 
     // Check if both passwords match but doesnt validate and aslong as username isnt empty its fine
-    if (!empty($username) && $password === $confirm_password) {
+    if (!empty($username) && $password === $confirmPassword) {
         $sql = "INSERT INTO users (username, password_hash) VALUES ('$username', '$password')";
         $result = $pdo->exec($sql);
     }
 
         // if user exists give error message to user
         if ($result) {
-            $msg = "account created";
+            $msg = "account already created";
         } else {
             // no password hash
             $msg = "Passwords do not match";

@@ -24,9 +24,9 @@ if (isset($_GET['msg'])) {
 
 // Handle any new task submission from the user
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['addTask'])) {
-    // remove the trim so the inputs are not sanitisated
-    $title = $_POST['title'];
-    $description = $_POST['description'];
+    // remove the trim so the inputs are not sanitisated add str_replace to allow <scripts> to run for the insecure file
+    $title = str_replace("'", "''", $_POST['title']);
+    $description = str_replace("'", "''", $_POST['description']);    
 
     if (!empty($title)) {
         //direct sql no prepared statement
@@ -115,7 +115,7 @@ $tasks = $result->fetchAll(PDO::FETCH_ASSOC);
         <?php foreach ($tasks as $task): ?>
             <li>
                 <?php if (isset($_GET['edit']) && $_GET['edit'] == $task['id']): ?>
-                    <!-- Inline Edit Form -->
+                    
                      //removing all the specialchars below to allow xss
                     <form method="post">
                         <input type="hidden" name="task_id" value="<?php echo $task['id']; ?>">
